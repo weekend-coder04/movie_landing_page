@@ -1,0 +1,112 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.main-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.wallpaper {
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.wallpaper img {
+  position: absolute;
+  height: 100%;
+  min-width: 100%;
+  top: 0px;
+  left: 0px;
+  width: auto;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: -1;
+}
+
+.wallpaper section {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  color: #fff;
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 300px;
+  height: auto;
+  max-height: 400px;
+  min-height: 300px;
+  padding: 10px;
+  overflow-y: auto;
+  border-radius: 10px;
+}
+
+.wallpaper section label {
+  font-size: 2rem;
+  margin-top: 10px;
+}
+
+.wallpaper section span {
+  font-size: 1rem;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.wallpaper-list {
+  display: flex;
+  gap: 10px;
+  position: absolute;
+  bottom: 10%;
+  right: 5%;
+}
+
+.wallpaper-list div {
+  width: 50px;
+  height: 100px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1;
+  background-color: transparent;
+}
+
+.wallpaper-list img {
+  width: 100px;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  border-radius: 10px;
+  border: 2px solid white;
+}
+
+.wallpaper-list img:hover {
+  transform: scale(1.1);
+}
+
+.wallpaper.zoom-out img {
+  transform: scale(3) rotate(180deg);
+  transition: all 0.3s linear;
+}
+
+.wallpaper.zoom-in img {
+  transform: scale(1);
+  animation: rotate 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+@keyframes rotate {
+  from {
+    transform: scale(3) rotate(-180deg);
+  }
+  to {
+    transform: scale(1) rotate(0deg);
+  }
+}
